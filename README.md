@@ -76,7 +76,7 @@ If you make an anonymous request, you'll receive only the last 20 Tor exit nodes
 
 Then you can use a Basic HTML authentication using your e-mail as username and your API Key as password. For Example:
 ```bash
-curl -s -u themiddle@protonmail.ch:my_api_key 'https://secthemall.com/public-list/tor-exit-nodes/json?size=900'
+curl -s -u themiddle@secthemall.com:my_api_key 'https://secthemall.com/public-list/tor-exit-nodes/json?size=900'
 {
     "results": [
         {
