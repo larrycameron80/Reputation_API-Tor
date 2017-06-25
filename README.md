@@ -7,7 +7,7 @@
 <br >
 
 # Tor exit nodes
-What you can find on https://check.torproject.org/exit-addresses is not a complete list of Tor exit node IP Addresses. SECTHEMALL try to connect each 2 seconds on random Tor node, saving the exit IP Address. At the first test, we've discovered 40 IP Addresses which are not listed on the check.torproject.org public list.
+What you can find on https://check.torproject.org/exit-addresses is not a complete list of Tor exit node IP Addresses. SECTHEMALL try to connect each 2 seconds on random Tor node, saving the exit IP Address. At the first test, we've discovered 50 IP Addresses which are not listed on the check.torproject.org public list.
 
 
 # Usage
@@ -71,7 +71,7 @@ $ curl -s 'https://secthemall.com/public-list/tor-exit-nodes/json?size=1'
 
 
 ## Authenticated requests
-If you make an anonymous request, you'll receive only the last 20 Tor exit nodes IPs. To make an authenticated request, please create a free account here https://secthemall.com/signup/ then go to:<br>
+If you send an anonymous request, you'll receive only the last 20 Tor exit nodes IPs. In order to send an authenticated request, please create a free account here https://secthemall.com/signup/ then go to:<br>
 *User menu* > *Profile* > *Show API Key*
 
 Then you can use a Basic HTML authentication using your e-mail as username and your API Key as password. For Example:
@@ -104,4 +104,15 @@ curl -s -u themiddle@secthemall.com:my_api_key 'https://secthemall.com/public-li
     "result_count": 9,
     "secthemall_count": 40
 }
+```
+
+## Lastid
+The `lastid` field could be used in order to know when the database has changed. For example you can save the `lastid` in a file and check if it's equal then the actual database id before download the whole list of exit nodes. For example:
+```php
+<?php
+    
+    $lastid = json_decode( file_get_contents('https://secthemall.com/public-list/tor-exit-nodes/json/?lastid=true'), true );
+    if() {
+    }
+    
 ```
