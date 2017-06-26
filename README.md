@@ -159,7 +159,7 @@ SecRule REMOTE_ADDR "@ipMatchFromFile /opt/tor-exit-nodes/listip.txt" "id:6000,\
     capture,\
     drop"
 ```
-then download the whole list:
+then download the whole list (authentication needed for `size=5000`):
 ```bash
 $ mkdir /opt/tor-exit-nodes
 $ cd /opt/tor-exit-nodes
