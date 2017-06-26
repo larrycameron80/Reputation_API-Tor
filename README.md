@@ -11,6 +11,17 @@ What you can find on https://check.torproject.org/exit-addresses is not a comple
 
 Take a look by clicking here: https://secthemall.com/public-list/tor-exit-nodes/json?size=20
 
+<br>
+
+# Table of contents
+- Usage
+- Results
+- Authenticated requests
+- Lastid
+- Block Tor with ModSecurity
+- Contributions
+
+<br>
 
 # Usage
 Query by anonymous users are limited to 20 results:
@@ -52,8 +63,9 @@ $ curl -s 'https://secthemall.com/public-list/tor-exit-nodes/json?size=1'
 }
 ```
 
+<br>
 
-## Result fields
+## Results
 <table>
 <tbody>
     <tr><td><b>ip</b></td> <td>Tor exit node IP address</td></tr>
@@ -71,6 +83,7 @@ $ curl -s 'https://secthemall.com/public-list/tor-exit-nodes/json?size=1'
 </tbody>
 </table>
 
+<br>
 
 ## Authenticated requests
 If you send an anonymous request, you'll receive only the last 20 Tor exit nodes IPs. In order to send an authenticated request, please create a free account here https://secthemall.com/signup/ then go to:<br>
@@ -108,6 +121,8 @@ curl -s -u themiddle@secthemall.com:my_api_key 'https://secthemall.com/public-li
 }
 ```
 
+<br>
+
 ## Lastid
 The `lastid` field could be used in order to know when the database has changed. For example you can save the `lastid` in a file and check if it's equal then the actual database id before download the whole list of exit nodes. For example:
 ```php
@@ -126,6 +141,8 @@ The `lastid` field could be used in order to know when the database has changed.
     }
     
 ```
+
+<br>
 
 # Block Tor with ModSecurity
 You can use this free service to block all traffic from Tor to your website using ModSecurity. For example, you can configure a SecRule like this:
@@ -152,6 +169,8 @@ $ curl -s -u themiddle@secthemall.com:my_apy_key \
 $ # reload your http server, example:
 $ /etc/init.d/nginx reload
 ```
+
+<br>
 
 # Contributions
 All your success cases are important for us! Please, share with us how you use this service. If you want to publish your own integration script, please make a pull request. For more information, please don't hesitate to write us at support@secthemall.com.
