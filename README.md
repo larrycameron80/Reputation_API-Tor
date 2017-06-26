@@ -16,12 +16,12 @@ Real time stats: https://secthemall.com/reputation-api/tor
 <br>
 
 # Table of contents
-- Usage
-- Results
-- Authenticated requests
-- Lastid
-- Block Tor with ModSecurity
-- Contributions
+- [Usage](#usage)
+- [Results](#results)
+- [Authenticated requests](#authenticated-requests)
+- [Lastid](#lastid)
+- [Block Tor with ModSecurity](#block-tor-with-modsecurity)
+- [Contributions](#contributions)
 
 <br>
 
