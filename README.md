@@ -144,7 +144,8 @@ then download the whole list:
 ```bash
 $ mkdir /opt/tor-exit-nodes
 $ cd /opt/tor-exit-nodes
-$ curl -s -u themiddle@secthemall.com:my_apy_key https://secthemall.com/public-list/tor-exit-nodes/iplist/?size=10000 > /opt/tor-exit-nodes/listip.txt
+$ curl -s -u themiddle@secthemall.com:my_apy_key \
+    https://secthemall.com/public-list/tor-exit-nodes/iplist/?size=10000 > /opt/tor-exit-nodes/listip.txt
 $
 $ # reload your http server, example:
 $ /etc/init.d/nginx reload
