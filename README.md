@@ -43,10 +43,10 @@ $ curl -s 'https://secthemall.com/public-list/tor-exit-nodes/json?size=1'
         }
     ],
     "lastid": "AVzV_UzSoy8zi76Jo4lT9b727444706ff9e40f59adbf962d3e0c",
-    "waring": "To get more then 20 results per query, please create a free account.",
-    "total_count": 970,
+    "warning": "To get more then 20 results per query, please create a free account here: https:\/\/secthemall.com\/signup\/",
+    "total_count": 1075,
     "result_count": 1,
-    "secthemall_count": 67
+    "secthemall_count": 71
 }
 ```
 
