@@ -11,6 +11,8 @@ What you can find on https://check.torproject.org/exit-addresses is not a comple
 
 Take a look by clicking here: https://secthemall.com/public-list/tor-exit-nodes/json?size=20
 
+Real time stats: https://secthemall.com/reputation-api/tor
+
 <br>
 
 # Table of contents
