@@ -152,3 +152,6 @@ $ curl -s -u themiddle@secthemall.com:my_apy_key \
 $ # reload your http server, example:
 $ /etc/init.d/nginx reload
 ```
+
+# Contributions
+All your success cases are important for us! Please, share with us how you use this service. If you want to publish your own integration script, please make a pull request. For more information, please don't hesitate to write us at support@secthemall.com.
