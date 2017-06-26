@@ -7,7 +7,7 @@
 <br >
 
 # Tor exit nodes
-What you can find on https://check.torproject.org/exit-addresses is not a complete list of Tor exit node IP Addresses. SECTHEMALL try to connect each 2 seconds on random Tor node, saving the exit IP Address. At the first test, we've discovered 50 IP Addresses which are not listed on the check.torproject.org public list.
+What you can find on https://check.torproject.org/exit-addresses is not a complete list of Tor exit node IP Addresses. SECTHEMALL try to connect each 2 seconds on random Tor node, saving the exit IP Address. At the first test, we've discovered 70 IP Addresses which are not listed on the check.torproject.org public list.
 
 
 # Usage
@@ -46,7 +46,7 @@ $ curl -s 'https://secthemall.com/public-list/tor-exit-nodes/json?size=1'
     "waring": "To get more then 20 results per query, please create a free account.",
     "total_count": 970,
     "result_count": 1,
-    "secthemall_count": 35
+    "secthemall_count": 67
 }
 ```
 
@@ -102,7 +102,7 @@ curl -s -u themiddle@secthemall.com:my_api_key 'https://secthemall.com/public-li
     "user_auth": true,
     "total_count": 975,
     "result_count": 9,
-    "secthemall_count": 40
+    "secthemall_count": 67
 }
 ```
 
