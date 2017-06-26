@@ -9,6 +9,8 @@
 # Tor exit nodes
 What you can find on https://check.torproject.org/exit-addresses is not a complete list of Tor exit node IP Addresses. SECTHEMALL is able to collect more IPs, trying to connect each 2 seconds through a random Tor node, saving the exit IP Address. During the first test, we've collected 70 IP Addresses which are not listed on the check.torproject.org public list.
 
+Take a look by clicking here: https://secthemall.com/public-list/tor-exit-nodes/json?size=20
+
 
 # Usage
 Query by anonymous users are limited to 20 results:
@@ -146,7 +148,7 @@ $ mkdir /opt/tor-exit-nodes
 $ cd /opt/tor-exit-nodes
 $ curl -s -u themiddle@secthemall.com:my_apy_key \
     https://secthemall.com/public-list/tor-exit-nodes/iplist/?size=10000 > /opt/tor-exit-nodes/listip.txt
-$
+
 $ # reload your http server, example:
 $ /etc/init.d/nginx reload
 ```
