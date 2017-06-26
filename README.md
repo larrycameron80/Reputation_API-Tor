@@ -121,7 +121,7 @@ The `lastid` field could be used in order to know when the database has changed.
         echo "Tor exit nodes list not changed.\n";
     } else {
         echo "Tor exit nodes list need a sync...\n";
-        exec('curl -s -u themiddle@secthemall.com:my_apy_key https://secthemall.com/public-list/tor-exit-nodes/iplist/?size=10000 > '.__DIR__.'/modsecurity_torexitnodes.txt');
+        exec('curl -s -u themiddle@secthemall.com:my_apy_key https://secthemall.com/public-list/tor-exit-nodes/iplist/?size=10000 > /opt/tor-exit-nodes/listip.txt');
         file_put_contents($lastidfile, $l['lastid']);
     }
     
