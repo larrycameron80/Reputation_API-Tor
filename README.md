@@ -113,13 +113,14 @@ The `lastid` field could be used in order to know when the database has changed.
 
     $l = json_decode( file_get_contents('https://secthemall.com/public-list/tor-exit-nodes/json/?lastid=true'), true );
 
-    $lastidfile = __DIR__.'/lastid_torexitnodes_elastic';
+    $lastidfile = __DIR__.'/lastid';
 
     if(file_exists($lastidfile) && file_get_contents($lastidfile) == $l['lastid']) {
-        echo "Tor exit nodes list not changed."
+        echo "Tor exit nodes list not changed.\n";
     } else {
-        echo "Tor exit nodes list need a sync..."
+        echo "Tor exit nodes list need a sync...\n";
         exec('curl -s -u themiddle@secthemall.com:my_apy_key https://secthemall.com/public-list/tor-exit-nodes/iplist/?size=10000 > '.__DIR__.'/modsecurity_torexitnodes.txt');
+        file_put_contents($lastidfile, $l['lastid']);
     }
     
 ```
