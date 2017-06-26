@@ -124,3 +124,28 @@ The `lastid` field could be used in order to know when the database has changed.
     }
     
 ```
+
+# Block Tor with ModSecurity
+You can use this free service to block all traffic from Tor to your website using ModSecurity. For example, you can configure a SecRule like this:
+```bash
+SecRule REMOTE_ADDR "@ipMatchFromFile /opt/tor-exit-nodes/listip.txt" "id:6000,\
+    phase:request,log,\
+    msg:'Tor exit node',\
+    tag:'bad-reputation/Tor',\
+    severity:'CRITICAL',\
+    maturity:'9',\
+    accuracy:'9',\
+    rev:'1',\
+    ver:'SECTHEMALL_1.0',\
+    capture,\
+    drop"
+```
+then download the whole list:
+```bash
+$ mkdir /opt/tor-exit-nodes
+$ cd /opt/tor-exit-nodes
+$ curl -s -u themiddle@secthemall.com:my_apy_key https://secthemall.com/public-list/tor-exit-nodes/iplist/?size=10000 > /opt/tor-exit-nodes/listip.txt
+$
+$ # reload your http server, example:
+$ /etc/init.d/nginx reload
+```
