@@ -7,7 +7,7 @@
 <br >
 
 # Tor exit nodes
-What you can find on https://check.torproject.org/exit-addresses is not a complete list of Tor exit node IP Addresses. SECTHEMALL try to connect each 2 seconds on random Tor node, saving the exit IP Address. At the first test, we've discovered 70 IP Addresses which are not listed on the check.torproject.org public list.
+What you can find on https://check.torproject.org/exit-addresses is not a complete list of Tor exit node IP Addresses. SECTHEMALL is able to collect more IPs, trying to connect each 2 seconds through a random Tor node, saving the exit IP Address. During the first test, we've collected 70 IP Addresses which are not listed on the check.torproject.org public list.
 
 
 # Usage
