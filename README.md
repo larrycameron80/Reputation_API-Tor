@@ -86,6 +86,13 @@ $ curl -s 'https://secthemall.com/public-list/tor-exit-nodes/json?size=1'
 </tbody>
 </table>
 
+by replacing the last part of the URL (`https://secthemall.com/public-list/tor-exit-nodes/`**json**`?size=20`), you can get different format results:
+<table>
+<tr><td><b>json</b></td><td>returns results as JSON</td></tr>
+<tr><td><b>iplist</b></td><td>returns just a list of IPs</td></tr>
+<tr><td><b>elasticsearch</b></td><td>returns all results as an elasticsearch bulk API syntax</td></tr>
+</table>
+
 <br>
 
 ## Authenticated requests
