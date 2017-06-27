@@ -21,6 +21,7 @@ Real time stats: https://secthemall.com/reputation-api/tor
 - [Authenticated requests](#authenticated-requests)
 - [Lastid](#lastid)
 - [Block Tor with ModSecurity](#block-tor-with-modsecurity)
+- [Import on Elasticsearch](#import-on-elasticsearch)
 - [Contributions](#contributions)
 
 <br>
@@ -173,6 +174,93 @@ $ /etc/init.d/nginx reload
 ```
 
 <br>
+
+# Import on Elasticsearch
+First download the whole database using type `elasticsearch` instead of `json`, and save the output to a file:
+```bash
+curl -s -u themiddle@secthemall.com:your_api_key \
+     'https://secthemall.com/public-list/tor-exit-nodes/elasticsearch?size=5000' > \
+     torexitnodes.json
+```
+
+Then import `torexitnodes.json` to your elasticsearch using bulk action:
+
+```bash
+curl -s -H "Content-Type: application/x-ndjson" \
+     -XPOST http://localhost:9200/_bulk \
+     --data-binary "@torexitnodes.json"
+```
+
+Now you can find all data inside the index `secthemall_reputation_tor`:
+```bash
+curl -s 'http://localhost:9200/secthemall_reputation_tor/_search?pretty'
+```
+the result will be something like this:
+```json
+{
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 2,
+    "max_score" : 1.0,
+    "hits" : [
+      {
+        "_index" : "secthemall_reputation_tor",
+        "_type" : "reputation",
+        "_id" : "c0c5493148d31f3f0d2e9c26a8b0e9c1",
+        "_score" : 1.0,
+        "_source" : {
+          "ip" : "158.255.211.9",
+          "ptr" : "9.211.255.158.in-addr.arpa.",
+          "expire" : 1499153031,
+          "geo" : {
+            "isocode" : "AT",
+            "countryname" : "Austria",
+            "subdivision" : null,
+            "city" : null,
+            "lat" : 48.2,
+            "lng" : 16.3667
+          },
+          "source" : "https://check.torproject.org/exit-addresses",
+          "created" : 1498548231,
+          "geopoint" : "48.2,16.3667"
+        }
+      },
+      {
+        "_index" : "secthemall_reputation_tor",
+        "_type" : "reputation",
+        "_id" : "dcdc1730eae01b2d655ab413a7c1bdc3",
+        "_score" : 1.0,
+        "_source" : {
+          "ip" : "77.250.227.12",
+          "ptr" : "dhcp-077-250-227-012.chello.nl.",
+          "expire" : 1499153031,
+          "geo" : {
+            "isocode" : "NL",
+            "countryname" : "Netherlands",
+            "subdivision" : "South Holland",
+            "city" : "Rotterdam",
+            "lat" : 51.895,
+            "lng" : 4.5111
+          },
+          "source" : "https://check.torproject.org/exit-addresses",
+          "created" : 1498548231,
+          "geopoint" : "51.895,4.5111"
+        }
+      }
+    ]
+  }
+}
+```
+
+View it on Kibana
+![kibana](http://i.imgur.com/hZG5frw.png)
+
 
 # Contributions
 All your success cases are important for us! Please, share with us how you use this service. If you want to publish your own integration script, please make a pull request. For more information, please don't hesitate to write us at support@secthemall.com.
