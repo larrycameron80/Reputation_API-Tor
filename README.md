@@ -21,7 +21,7 @@ Real time stats: https://secthemall.com/reputation-api/tor
 - [Authenticated requests](#authenticated-requests)
 - [Lastid](#lastid)
 - [Block Tor with ModSecurity](#block-tor-with-modsecurity)
-- [Import on Elasticsearch](#import-on-elasticsearch)
+- [Import to Elasticsearch](#import-to-elasticsearch)
 - [Contributions](#contributions)
 
 <br>
@@ -175,7 +175,7 @@ $ /etc/init.d/nginx reload
 
 <br>
 
-# Import on Elasticsearch
+# Import to Elasticsearch
 First download the whole database using type `elasticsearch` instead of `json`, and save the output to a file:
 ```bash
 curl -s -u themiddle@secthemall.com:your_api_key \
